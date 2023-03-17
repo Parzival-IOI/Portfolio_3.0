@@ -2,7 +2,7 @@ import supabase from '@/utils/supabase'
 import React from 'react'
 import {notFound} from 'next/navigation';
 
-export const revalidate = 0;
+// export const revalidate = 0;
 
 export async function  generateStaticParams() {
     const {data : projects } = await supabase.from("project").select("id");

@@ -1,8 +1,12 @@
 import React from 'react'
+import Parallax from '@/Components/Parallax'
+
 
 const page = () => {
   return (
-    <div>Hello my Name is Parzival</div>
+    <div className='min-h-[120vh] '>
+      <Parallax></Parallax>
+    </div>
   )
 }
 
