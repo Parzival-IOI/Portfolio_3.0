@@ -1,6 +1,6 @@
 import React from 'react'
-import Parallax from '@/components/Parallax'
-import Intro from '@/components/Intro'
+import Parallax from '@/Components/Parallax'
+import Intro from '@/Components/Intro'
 
 const page = () => {
   return (
