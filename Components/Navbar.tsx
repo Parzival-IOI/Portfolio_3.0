@@ -34,7 +34,7 @@ const Navbar = () => {
   let isActive : boolean;
 
   return (
-    <div className='w-full h-16 md:h-20 bg-slate-400/30 flex items-center justify-between absolute z-50'>
+    <div className='w-full h-16 md:h-20 bg-slate-400/30 flex items-center justify-between absolute z-50 sticky'>
       <div className='h-full aspect-square rounded-full grid place-items-center'>
         {isActive = ("/" === pathname) ? true : false}
         <Link href={"/"} key="1" className={` transition-all flex justify-center items-center ${isActive ? `` : ``}`}>
