@@ -1,5 +1,5 @@
 import React from 'react'
-import Parallax from '@/Components/Parallax'
+import Parallax from '@/components/Parallax'
 
 
 const page = () => {
