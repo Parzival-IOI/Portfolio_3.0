@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='relative text-black bg-white dark:text-white dark:bg-[#07081f]'>
+      <body className='relative text-black dark:text-white bg-[#023017] dark:bg-[#0f1b31]'>
         <Navbar/>
         <main>{children}</main>
       </body>
