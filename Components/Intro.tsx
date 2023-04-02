@@ -24,7 +24,7 @@ const Intro = () => {
 
             <div className="w-full h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 dark:from-cyan-500 dark:to-blue-500 rounded-2xl mt-2 md:mt-6"></div>
             
-            <ul className="list-disc pl-8 mt-4 text-md md:text-lg text-white">
+            <ul className="list-disc pl-8 my-6 md:my-8 mx-0 md:mx-2 text-md md:text-lg text-white">
               <li>C/C++ (<strong className="dark:text-slate-500 text-rose-400"> Basic && Advanced </strong>)</li>
               <li>HTML/CSS</li>
               <li>Javascript</li>
@@ -46,7 +46,7 @@ const Intro = () => {
 
             <div className="w-full h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 dark:from-cyan-500 dark:to-blue-500 rounded-2xl mt-2 md:mt-6"></div>
             
-            <ul className="list-disc pl-8 mt-4 text-md md:text-lg text-white">
+            <ul className="list-disc pl-8 my-6 md:my-8 mx-0 md:mx-2 text-md md:text-lg text-white">
               <li>RUPP (<strong className="dark:text-slate-500 text-rose-400"> C/C++  Arduino   </strong>)</li>
               <li>ETEC Center (<strong className="dark:text-slate-500 text-rose-400"> HTML/CSS  Javascript  PHP   </strong>)</li>
               <li>Self Study (<strong className="dark:text-slate-500 text-rose-400"> HTML/CSS Javaccript PHP React NextJS  </strong>)</li>
