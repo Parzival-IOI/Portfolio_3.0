@@ -34,7 +34,7 @@ const Navbar = () => {
   let isActive : boolean;
 
   return (
-    <div className='w-full h-16 md:h-20 dark:bg-slate-700/50 bg-slate-500/30  flex items-center justify-between z-50 sticky'>
+    <div className='w-full h-16 md:h-20 dark:bg-slate-700/50 bg-slate-500/30  flex items-center justify-between z-50 absolute'>
       <div className='h-full aspect-square rounded-full grid place-items-center dark:hover:text-yellow-400 hover:shadow-sm dark:hover:shadow-yellow-300 hover:text-rose-600 hover:shadow-rose-500 transition-all'>
         {isActive = ("/" === pathname) ? true : false}
         <Link href={"/"} key="1" className={` transition-all flex justify-center items-center ${isActive ? `` : ``}`}>
