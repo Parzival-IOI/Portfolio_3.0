@@ -14,8 +14,8 @@ const name: NavName[] = [
   
   {
     key: 2,
-    name : 'project', 
-    path:'/project'
+    name : 'Projects', 
+    path:'/Projects'
   },
   {
     key: 3, 
