@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.backround {
+.background {
     background-color: rgb(5, 2, 41);
 }

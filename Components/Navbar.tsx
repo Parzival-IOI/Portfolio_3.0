@@ -4,28 +4,27 @@ import Link from 'next/link'
 import { HomeIcon } from './Icon'
 import { usePathname } from 'next/navigation'
 
-interface NavName {
+type NavName = {
   key: number
   name: string,
   path: string,
 }
 
-const name: NavName[] = [ 
-  
+const name: NavName[] = [
   {
     key: 2,
     name : 'Projects', 
-    path:'/Projects'
+    path:"/Projects",
   },
   {
     key: 3, 
     name : 'About', 
-    path:'/About'
+    path:"/About",
   },
   {
     key: 4, 
     name : 'Contact', 
-    path:'/Contact'
+    path:"/Contact",
   }
 ]
 

@@ -1,9 +1,10 @@
 import React from 'react'
 import supabase from '@/utils/supabase'
+import { forEachChild } from 'typescript';
 
 export const revalidate = 3600;
 
-type DataInfo = {
+interface DataInfo {
   id: number,
   created_at: Date,
   name: string,
@@ -15,11 +16,14 @@ type DataInfo = {
 }
 
 const page = async () => {
-    const data = await supabase.from("CardProject").select("*");
-  return (
-    <pre>
+    const { data} = await supabase.from("CardProject").select("*");
+
+    return (
+    <div>
+      <pre>
         {JSON.stringify(data, null, 2)}
-    </pre>
+      </pre>
+    </div>
   )
 }
 
