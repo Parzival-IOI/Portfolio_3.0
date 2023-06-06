@@ -3,18 +3,19 @@
 import Link from 'next/link'
 import { HomeIcon } from './Icon'
 import { usePathname } from 'next/navigation'
+import { UrlObject } from 'url'
 
 type NavName = {
   key: number
   name: string,
-  path: string,
+  path: string|any,
 }
 
 const name: NavName[] = [
   {
     key: 2,
     name : 'Projects', 
-    path:"/Projects",
+    path:'/Projects',
   },
   {
     key: 3, 
@@ -44,7 +45,7 @@ const Navbar = () => {
         {name.map((items)=>{
           isActive = (items.path === pathname) ? true : false;
           return (
-            <Link href={items.path} key={items.key} className={`px-1 py-1 hover:dark:text-slate-300 hover:text-slate-800 relative transition-all duration-300 before:content-[''] before:transition-all before:absolute before:bottom-0 before:left-0 before:rounded-md before:h-[8%] before:dark:bg-white before:bg-blue-900  ${isActive ? `before:w-full` : `before:w-0 hover:before:w-full`}`}>{items.name}</Link>
+            <Link href={{pathname: items.path}} key={items.key} className={`px-1 py-1 hover:dark:text-slate-300 hover:text-slate-800 relative transition-all duration-300 before:content-[''] before:transition-all before:absolute before:bottom-0 before:left-0 before:rounded-md before:h-[8%] before:dark:bg-white before:bg-blue-900  ${isActive ? `before:w-full` : `before:w-0 hover:before:w-full`}`}>{items.name}</Link>
         )})}
       </div>
     </div>
