@@ -3,7 +3,7 @@ import { FacebookIcon, GithubIcon, YoutubeIcon } from "./Icon"
 
 const Footer = () => {
   return (
-    <section className="h-32 bg-[#023017] dark:bg-[#0f1b31]">
+    <section className="w-full h-32 bg-[#023017] dark:bg-[#0f1b31]">
         <div className="bg-violet-700 flex justify-center item-center flex-col w-[90%] md:w-[80%] h-[95%] mx-auto my-auto shadow-sm shadow-white rounded-2xl">
             <div className="flex justify-center items-center gap-4 md:gap-8 h-1/2 text-white">
                 <a href="https://web.facebook.com/hor.kimhouy.739" target="_blank" rel="noopener noreferrer"><FacebookIcon></FacebookIcon></a>
