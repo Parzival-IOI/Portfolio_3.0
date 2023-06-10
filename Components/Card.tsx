@@ -2,7 +2,7 @@
 import React from 'react'
 import { Oswald } from 'next/font/google'
 import Image from "next/image"
-import img from "../app/sea.png"
+import img from "../app/Sea.png"
 import Link from 'next/link'
 import {LinkIcon} from './Icon'
 
