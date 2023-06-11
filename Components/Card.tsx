@@ -2,7 +2,7 @@
 import React from 'react'
 import { Oswald } from 'next/font/google'
 import Image from "next/image"
-import img from "../app/Sea.png"
+import img from "../app/NoImage.png"
 import Link from 'next/link'
 import {LinkIcon} from './Icon'
 import { revalidate } from '@/app/Projects/page'
@@ -23,7 +23,7 @@ interface Props {
 
 
 const Card : React.FC<Props> = (props) => {
-    let path = "/Project/" + props.item?.id
+    let path = "/Projects/" + props.item?.id
   return (
     <Link href={{pathname: path}} key={props.key} className="flex justify-start items-center overflow-hidden flex-col min-w-[14rem] h-80 sm:h-96 max-w-[18rem] bg-slate-400 rounded-t-xl rounded-b-md shadow-md shadow-slate-300 hover:shadow-lg hover:shadow-slate-300" >
         <Image src={img} alt="" width={1000} height={1000} className="w-full h-[45%] rounded-t-md" ></Image>
