@@ -5,6 +5,7 @@ import Image from "next/image"
 import img from "../app/Sea.png"
 import Link from 'next/link'
 import {LinkIcon} from './Icon'
+import { revalidate } from '@/app/Projects/page'
 
 interface Props {
     item? : {
@@ -20,10 +21,11 @@ interface Props {
     key? : number | undefined | null,
 }
 
+
 const Card : React.FC<Props> = (props) => {
     let path = "/Project/" + props.item?.id
   return (
-    <Link href={{pathname: path}} key={props.key} className="flex justify-start items-center overflow-hidden flex-col min-w-sm w-64 h-80 max-w-lg bg-slate-400 rounded-t-xl rounded-b-md shadow-md shadow-slate-300 hover:shadow-lg hover:shadow-slate-300" >
+    <Link href={{pathname: path}} key={props.key} className="flex justify-start items-center overflow-hidden flex-col min-w-[14rem] h-80 sm:h-96 max-w-[18rem] bg-slate-400 rounded-t-xl rounded-b-md shadow-md shadow-slate-300 hover:shadow-lg hover:shadow-slate-300" >
         <Image src={img} alt="" width={1000} height={1000} className="w-full h-[45%] rounded-t-md" ></Image>
         <div className='flex justify-start items-start flex-col w-full h-[55%] p-1'>
             <div className='mx-3 py-1 px-2 rounded-lg bg-slate-800 text-slate-100 text-xs'>{props.item?.language}</div>
