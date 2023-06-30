@@ -1,11 +1,11 @@
-"use client"
+// "use client"
 import React from 'react'
 import { Oswald } from 'next/font/google'
 import Image from "next/image"
-import img from "../app/NoImage.png"
 import Link from 'next/link'
 import {LinkIcon} from './Icon'
 import { revalidate } from '@/app/Projects/page'
+import Photo from './Photo'
 
 interface Props {
     item? : {
@@ -25,13 +25,14 @@ interface Props {
 const Card : React.FC<Props> = (props) => {
     let path = "/Projects/" + props.item?.id
   return (
-    <Link href={{pathname: path}} key={props.key} className="flex justify-start items-center overflow-hidden flex-col min-w-[14rem] h-80 sm:h-96 max-w-[18rem] bg-slate-400 rounded-t-xl rounded-b-md shadow-md shadow-slate-300 hover:shadow-lg hover:shadow-slate-300" >
-        <Image src={img} alt="" width={1000} height={1000} className="w-full h-[45%] rounded-t-md" ></Image>
+    <Link href={{pathname: path}} key={props.key} className="flex justify-start items-center overflow-hidden flex-col min-w-[14rem] h-[23rem] sm:h-96 max-w-[18rem] bg-slate-400 rounded-t-sm rounded-b-3xl shadow-md shadow-slate-400  hover:shadow-slate-200 transition-all group" >
+        {/* <Image src={img} alt="" width={1000} height={1000} className="w-full h-[45%] rounded-t-md" ></Image> */}
+        <Photo pic={props.item?.picture}></Photo>
         <div className='flex justify-start items-start flex-col w-full h-[55%] p-1'>
-            <div className='mx-3 py-1 px-2 rounded-lg bg-slate-800 text-slate-100 text-xs'>{props.item?.language}</div>
+            <div className='mx-3 py-1 px-2 sm:mt-3 sm:mb-2 mt-2 mb-1 rounded-lg bg-slate-800 text-slate-100 text-xs'>{props.item?.language}</div>
             <p className=" w-full text-md md:text-lg truncate h-[15%] overflow-hidden text-slate-700 px-3 font-semibold underline decoration-double" >{props.item?.name}</p>
-            <p className='px-3 mt-2 indent-2 w-full h-[38%] text-sm text-ellipsis overflow-hidden break-words text-pink-800'>{props.item?.description}</p>
-            <p className='px-3 mt-3 underline text-slate-700 text-sm font-simibold '>Date : {props.item?.date?.toString()}</p>
+            <p className='px-3 mt-2 indent-2 w-full h-[33%]  sm:h-[40%] text-sm text-ellipsis overflow-hidden break-words text-fuchsia-900'>{props.item?.description}</p>
+            <p className='px-5  mt-2 underline text-slate-700 text-sm font-simibold '>Date : {props.item?.date?.toString()}</p>
             {/* <div className="px-3 mt-3 flex justify-center items-center">
                 <a href={props.item?.link} target='_blank' className="text-slate-600 flex justify-center items-center text-sm gap-2 hover:text-slate-800 transition">
                     <LinkIcon></LinkIcon> Click To Open Project
