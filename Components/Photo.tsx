@@ -12,96 +12,64 @@ import hcj from '@/public/htmlcssjs-overview.png'
 import NoImage from '@/public/NoImage.png'
 
 interface Props {
-    pic? : string
-}
-interface PicName {
-  name? : string
+    val : number
 }
 
 interface varibleConst {
   image : StaticImageData;
-  text : string,
   background : string,
 }
-
 
 const Photo: React.FC<Props>  = (props) => {
   return (
     <div className='w-full h-[45%] overflow-hidden'>
-      <Image src={variable[getPic(props.pic)].image} alt="" width={1000} height={1000} className={`${"w-full h-full object-cover group-hover:scale-110 transition-translate duration-500"} ${variable[getPic(props.pic)].background}`}></Image>
+      <Image src={variable[props.val].image} alt="" width={1000} height={1000} className={`${"w-full h-full object-cover group-hover:scale-110 transition-translate duration-500 "} ${variable[props.val].background}`}></Image>
     </div>
   )
 }
 
 export default Photo
 
-function getPic(name?:string | undefined) {
-  let alpha:number;
 
-  if(name == "c_cpp") alpha = 0;
-  else if (name == "react") alpha = 1;
-  else if (name == "php") alpha = 2;
-  else if (name == "python") alpha = 3;
-  else if (name == "micropython") alpha = 4;
-  else if (name == "cs") alpha = 5;
-  else if (name == "ino") alpha = 6;
-  else if (name == "java") alpha = 7;
-  else if (name == "hcj") alpha = 8;
-  else alpha = 9;
-
-  return alpha;
-}
-
-
-const variable:varibleConst[] = [
+const variable: varibleConst[] = [
   {
     image : c_cpp,
-    text : "",
     background: "",
   },
   {
     image : react,
-    text : "",
     background: " bg-gradient-to-br from-green-500 to-cyan-600 ",
   },
   {
     image : php,
-    text : "",
-    background: "",
+    background: " bg-gradient-to-br from-rose-400 to-amber-300 ",
   },
   {
     image : python,
-    text : "",
     background: "",
   },
   {
     image : micropython,
-    text : "",
     background: "",
   },
   {
     image : cs,
-    text : "",
-    background: "",
+    background: " bg-gradient-to-br from-orange-400 to-purple-600 ",
   },
   {
     image : ino,
-    text : "",
-    background: "",
+    background: " bg-gradient-to-br from-pink-600 to-cyan-500 ",
   },
   {
     image : java,
-    text : "",
-    background: "",
+    background: " bg-gradient-to-br from-purple-600 to-slate-100 ",
   },
   {
     image : hcj,
-    text : "",
     background: "",
   },
   {
     image : NoImage,
-    text : "",
     background: "",
   },
 ]

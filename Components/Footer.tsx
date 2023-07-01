@@ -9,7 +9,6 @@ const Footer = () => {
                 <a href="https://web.facebook.com/hor.kimhouy.739" target="_blank" rel="noopener noreferrer"><FacebookIcon></FacebookIcon></a>
                 <a href="https://github.com/Parzival-IOI"  target="_blank" rel="noopener noreferrer"><GithubIcon></GithubIcon></a>
                 <a href="https://www.youtube.com/@parzival-ioi" target="_blank" rel="noopener noreferrer"><YoutubeIcon></YoutubeIcon></a>
-                
             </div>
             <div className="text-md md:text-lg text-slate-300 flex justify-center items-center font-bold flex-col">
                 <div>&#169; Parzival@2023</div>

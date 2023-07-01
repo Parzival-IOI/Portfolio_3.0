@@ -1,10 +1,11 @@
 import './globals.css'
 import Navbar from '../Components/Navbar'
+import { Metadata } from 'next'
 
-export const metadata = {
+export const metadata : Metadata = {
   title: {
-    default : 'Parzival',
-    template : '%s | Parzival',
+    default : "Parzival",
+    template : "%s | Parzival",
   },
   description: 'Personal Portfolio',
 }

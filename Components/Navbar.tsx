@@ -36,9 +36,9 @@ const Navbar = () => {
   return (
     <div className='w-full h-16 md:h-20 dark:bg-slate-700/50 bg-slate-400/60  flex items-center justify-between z-50 absolute'>
       <div className=' h-full aspect-square rounded-full grid place-items-center '>
-        <div className='p-3 aspect-square rounded-full grid place-items-center dark:hover:text-yellow-400 hover:border-2 dark:hover:border-yellow-300 hover:text-rose-600 hover:border-rose-500 transition-all duration-200'>
+        <div className='p-2 md:p-3 aspect-square rounded-full grid place-items-center dark:hover:text-yellow-400 hover:border-2 dark:hover:border-yellow-300 hover:text-rose-600 hover:border-rose-500 transition-all duration-200'>
           {isActive = ("/" === pathname) ? true : false}
-          <Link href={"/"} key="1" className={`p-2 transition-all flex justify-center items-center hover:border-2 dark:hover:border-rose-600 hover:border-yellow-300 ${isActive ? `` : ``}`}>
+          <Link href={"/"} key="1" className={`md:p-2 transition-all flex justify-center items-center md:hover:border-2 md:dark:hover:border-rose-600 md:hover:border-yellow-300 ${isActive ? `` : ``}`}>
             <HomeIcon/>
           </Link>
         </div>
