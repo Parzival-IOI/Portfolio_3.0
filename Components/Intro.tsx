@@ -1,11 +1,14 @@
 import BoxList from "@/Components/BoxLists"
-
+import Image from "next/image"
+import Profile from "@/public/Profile.jpg"
 
 
 const Intro = () => {
   return (
     <section className="bg-[#023017] dark:bg-[#0f1b31] w-full p-8 md:py-20 md:px-32 ">
-      
+      <div className="flex justify-center items-center my-16 md:my-24">
+        <p className="text-2xl md:text-3xl font-bold underline decoration-2 text-amber-500 ">Hi and Welcome to My Portfolio</p>
+      </div>
       <BoxList>
         <h4 className="text-2xl md:text-3xl font-bold underline decoration-2 text-amber-500 text-justify">Introduction</h4>
         <div className="w-full h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 dark:from-cyan-500 dark:to-blue-500 rounded-2xl mt-2 md:mt-6"></div>
@@ -20,9 +23,10 @@ const Intro = () => {
           <li>Javascript</li>
           <li>PHP (<strong className="dark:text-slate-500 text-rose-400"> Basic </strong>)</li>
           <li>React JS (<strong className="dark:text-slate-500 text-rose-400"> Basic </strong>)</li>
-          <li>Next13 JS (<strong className="dark:text-slate-500 text-rose-400"> Basic </strong>)</li>
+          <li>Next JS (<strong className="dark:text-slate-500 text-rose-400"> Advanced </strong>)</li>
           <li>MySQL / SQL SERVER </li>
           <li>Arduino (<strong className="dark:text-slate-500 text-rose-400"> C++ for Robotic </strong>)</li>
+          <li>Micropython (<strong className="dark:text-slate-500 text-rose-400"> Smart-Home </strong>)</li>
         </ul>
       </BoxList>
       <BoxList>
