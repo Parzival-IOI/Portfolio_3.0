@@ -31,9 +31,6 @@ const page = async () => {
                 <Card item={item} key={item.id}/>
               )
             })}
-          {/* <pre>
-            {JSON.stringify(data, null, 2)}
-          </pre> */}
         </div>
         <Footer/>
       </div>

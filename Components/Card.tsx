@@ -1,9 +1,7 @@
 // "use client"
 import React from 'react'
 import { Oswald } from 'next/font/google'
-import Image from "next/image"
 import Link from 'next/link'
-import {LinkIcon} from './Icon'
 import { revalidate } from '@/app/Projects/page'
 import Photo from './Photo'
 

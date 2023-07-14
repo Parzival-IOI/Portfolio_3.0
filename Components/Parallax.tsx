@@ -1,8 +1,8 @@
 import Image from "next/image"
-import sea from '../app/Sea.png'
-import seaF from '../app/SeaF.png'
-import forest from '../app/Forest.png'
-import forestF from '../app/ForestF.png'
+import sea from '@/public/Sea.png'
+import seaF from '@/public/SeaF.png'
+import forest from '@/public/Forest.png'
+import forestF from '@/public/ForestF.png'
 
 
 const Parallax = () => {
