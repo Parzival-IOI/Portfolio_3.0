@@ -1,7 +1,4 @@
 import BoxList from "@/Components/BoxLists"
-import Image from "next/image"
-import Profile from "@/public/Profile.jpg"
-
 
 const Intro = () => {
   return (

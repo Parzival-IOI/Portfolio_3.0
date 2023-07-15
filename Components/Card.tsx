@@ -22,7 +22,7 @@ interface Props {
 const Card : React.FC<Props> = (props) => {
     let path = "/Projects/" + props.item?.id
   return (
-    <Link href={{pathname: path}} key={props.key} className="flex justify-start items-center overflow-hidden flex-col min-w-[14rem] h-[23rem] sm:h-96 max-w-[18rem] bg-slate-400 rounded-t-sm rounded-b-3xl shadow-md shadow-slate-400  hover:shadow-slate-200 transition-all group" >
+    <Link href={{pathname: path}} key={props.key} className="flex justify-start items-center overflow-hidden flex-col min-w-[14rem] w-[90%] sm:w-auto h-[23rem] sm:h-96 max-w-[20rem] bg-slate-400 rounded-t-sm rounded-b-3xl shadow-md shadow-slate-400  hover:shadow-slate-200 transition-all group" >
         <Photo val={getPic(props.item?.picture)}></Photo>
         <div className='flex justify-start items-start flex-col w-full h-[55%] p-1'>
             <div className='mx-3 py-1 px-2 sm:mt-3 sm:mb-2 mt-2 mb-1 rounded-lg bg-slate-800 text-slate-100 text-xs'>{props.item?.language}</div>
