@@ -1,6 +1,5 @@
 import { FacebookIcon, GithubIcon, YoutubeIcon } from "./Icon"
 
-
 const Footer = () => {
   return (
     <section className="w-full h-32 bg-[#023017] dark:bg-[#0f1b31]">

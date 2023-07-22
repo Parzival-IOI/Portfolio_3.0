@@ -3,7 +3,12 @@
 import Link from 'next/link'
 import { HomeIcon } from './Icon'
 import { usePathname } from 'next/navigation'
-import { UrlObject } from 'url'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({
+  subsets : ['latin'],
+  display : 'swap',
+})
 
 type NavName = {
   key: number
@@ -34,7 +39,7 @@ const Navbar = () => {
   let isActive : boolean;
 
   return (
-    <div className='w-full h-16 md:h-20 dark:bg-slate-700/50 bg-slate-400/60 flex items-center justify-between z-50 absolute'>
+    <div className={`${inter.className} w-full h-16 md:h-20 dark:bg-slate-700/50 bg-slate-400/60 flex items-center justify-between z-50 absolute`}>
       <div className=' h-full aspect-square rounded-full grid place-items-center '>
         <div className='p-2 md:p-3 aspect-square rounded-full grid place-items-center dark:hover:text-yellow-400 hover:border-2 dark:hover:border-yellow-300 hover:text-rose-600 hover:border-rose-500 transition-all duration-200'>
           {isActive = ("/" === pathname) ? true : false}

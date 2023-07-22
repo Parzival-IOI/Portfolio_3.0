@@ -1,6 +1,12 @@
 import './globals.css'
 import Navbar from '../Components/Navbar'
 import { Metadata } from 'next'
+import { Signika } from 'next/font/google'
+
+const signika = Signika({
+  subsets : ['latin'],
+  display : 'swap',
+})
 
 export const metadata : Metadata = {
   title: {
@@ -17,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='relative text-black dark:text-white bg-[#023017] dark:bg-[#0f1b31]'>
+      <body className={`${signika.className} relative text-black dark:text-white bg-[#023017] dark:bg-[#0f1b31]`}>
         <Navbar/>
         <main>{children}</main>
       </body>
