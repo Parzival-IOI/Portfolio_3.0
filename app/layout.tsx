@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${signika.className} relative text-black dark:text-white bg-[#023017] dark:bg-[#0f1b31]`}>
+      <body className={`${signika.className} relative text-white bg-[#023017] dark:bg-[#0f1b31]`}>
         <Navbar/>
         <main>{children}</main>
       </body>

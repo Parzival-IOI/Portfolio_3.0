@@ -5,3 +5,22 @@
 .background {
     background-color: rgb(5, 2, 41);
 }
+
+.transition_once {
+    animation-name: smooth_opening;
+    animation-duration: 2000ms;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes smooth_opening {
+    from {
+        transform: translateY(10rem);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0rem);
+        opacity: 1;
+    }
+}
