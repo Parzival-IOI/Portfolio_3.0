@@ -24,7 +24,7 @@ const ScrollUp = () => {
     return (
         <>
             <div className='absolute w-1 top-[90vh] right-8' ref={_ref_}></div>
-            <button type='button' onClick={(e) => up(e)} className={` w-10 aspect-square rounded-full bg-slate-900/80 flex justify-center items-center z-50 right-4 bottom-4 transition-opacity duration-1000 fixed ${_view ? 'opacity-0' : 'opacity-100 animate-bounce'}`}>
+            <button type='button' onClick={(e) => up(e)} className={` w-14 aspect-square rounded-full bg-slate-900/80 flex justify-center items-center z-50 right-4 bottom-4 transition-opacity duration-1000 fixed ${_view ? 'opacity-0' : 'opacity-100 animate-bounce'}`}>
                 <Arrow/>
             </button>
         </>
