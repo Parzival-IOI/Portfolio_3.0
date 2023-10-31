@@ -61,7 +61,7 @@ const Navbar = () => {
         {!sideBar && <Menu/>}
         {sideBar && <Close/>}
       </button>
-      {sideBar && <div className='fixed left-0 top-0 w-full h-full bg-slate-800/50 delay-200 transition-opacity duration-500' onClick={()=>{openSideBar()}}></div>}
+      {sideBar && <div className='fixed left-0 top-0 w-full h-full bg-slate-800/50 delay-200 transition-opacity duration-500 block sm:hidden' onClick={()=>{openSideBar()}}></div>}
       
       <div className={`fixed w-1/2 h-full top-0 bg-slate-800/95 transition-all duration-500  flex justify-center items-center flex-col gap-y-16 text-xl mr-6 lg:gap-6 font-bold sm:bg-transparent sm:flex-row sm:w-auto sm:relative sm:left-0 sm:text-base sm:gap-4 ${sideBar ? `left-1/2` : `left-full` }`}>
         {name.map((items)=>{
