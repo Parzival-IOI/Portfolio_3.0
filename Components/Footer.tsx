@@ -2,8 +2,8 @@ import { FacebookIcon, GithubIcon, YoutubeIcon } from "./Icon"
 
 const Footer = () => {
   return (
-    <section className="w-full h-32 bg-[#023017] dark:bg-[#0f1b31]">
-        <div className="bg-violet-700 flex justify-center item-center flex-col w-[90%] md:w-[80%] h-[95%] mx-auto my-auto shadow-sm shadow-white rounded-2xl">
+    <section className="w-full h-32 max-w-6xl mx-auto bg-[#023017] dark:bg-[#0f1b31]">
+        <div className="bg-violet-700 flex justify-center item-center flex-col h-[95%] mx-auto my-auto shadow-sm shadow-white rounded-2xl">
             <div className="flex justify-center items-center gap-4 md:gap-8 h-1/2 text-white">
                 <a className="hover:text-slate-200 transition-color duration-100" href="https://web.facebook.com/hor.kimhouy.739" target="_blank" rel="noopener noreferrer"><FacebookIcon></FacebookIcon></a>
                 <a className="hover:text-slate-200 transition-color duration-100" href="https://github.com/Parzival-IOI"  target="_blank" rel="noopener noreferrer"><GithubIcon></GithubIcon></a>

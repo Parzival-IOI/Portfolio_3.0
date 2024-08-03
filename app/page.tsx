@@ -7,8 +7,10 @@ const page = () => {
   return (
     <div className='min-h-[120vh] '>
       <Parallax></Parallax>
-      <Intro></Intro>
-      <Footer></Footer>
+      <div className='p-8 md:py-20 md:px-32 bg-[#023017] dark:bg-[#0f1b31]'>
+        <Intro></Intro>
+        <Footer></Footer>
+      </div>
     </div>
   )
 }

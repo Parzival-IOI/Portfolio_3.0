@@ -24,8 +24,8 @@ interface DataInfo {
 }
 
 const page = async () => {
-    const { data, error }:{ data:DataInfo[] | undefined | null, error:any} = await supabase.from("CardProject").select("*");
-    console.log(data);
+    const res = {data: []};
+    const data = res.data;
     if(!data) {
       throw new Error('No data');
     }

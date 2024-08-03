@@ -3,7 +3,7 @@ import { Asterisk } from "@/Components/Icon"
 
 const Intro = () => {
   return (
-    <section className='bg-[#023017] dark:bg-[#0f1b31] w-full p-8 md:py-20 md:px-32'>
+    <section className='w-full max-w-6xl mx-auto'>
       <div className="flex justify-center items-center my-16 md:my-24">
         <p className={`text-2xl md:text-3xl font-bold underline decoration-2 text-amber-500 `}>Hi and Welcome to My Portfolio</p>
       </div>
