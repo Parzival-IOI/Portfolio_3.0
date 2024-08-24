@@ -1,54 +1,23 @@
-import BoxList from "@/Components/BoxLists"
-import { Asterisk } from "@/Components/Icon"
+import Image from "next/image"
+import BoldU from "./BoldU"
+
 
 const Intro = () => {
   return (
-    <section className='w-full max-w-6xl mx-auto'>
-      <div className="flex justify-center items-center my-16 md:my-24">
-        <p className={`text-2xl md:text-3xl font-bold underline decoration-2 text-amber-500 `}>Hi and Welcome to My Portfolio</p>
-      </div>
-      <BoxList>
-        <h4 className="text-2xl md:text-3xl font-bold underline decoration-2 text-amber-500 flex gap-4 items-center">
-          <Asterisk/>
-          Introduction
-        </h4>
-        <div className="w-full h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 dark:from-cyan-500 dark:to-blue-500 rounded-2xl mt-2 md:mt-6"></div>
-        <p className="text-md md:text-lg text-white indent-8 my-6 md:my-8 mx-0 md:mx-2">My Name is <strong className="text-fuchsia-700 hover:underline transition-all ">Parzival</strong> (<strong className="text-rose-300"> Alias </strong>). I studied at RUPP (<strong className="text-rose-600"> ROYAL UNIVERSITY OF PHNOMPENH </strong>) as a second year student. I like working in Web Development and when I'm free, I like to <span className="underline decoration-2 underline-offset-4">experiment</span> and <span className="underline decoration-2 underline-offset-4">develop new project</span>.</p>
-      </BoxList>
-      <BoxList>
-        <h4 className="text-2xl md:text-3xl font-bold underline decoration-2 text-amber-500 flex gap-4 items-center">
-          <Asterisk/>
-          Programming Languages
-        </h4>
-        <div className="w-full h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 dark:from-cyan-500 dark:to-blue-500 rounded-2xl mt-2 md:mt-6"></div>
-        <ul className={`font-bold list-disc pl-8 my-6 md:my-8 mx-0 md:mx-2 text-md md:text-lg text-white`}>
-          <li>C/C++ (<strong className="dark:text-slate-500 text-rose-400"> Basic && Advanced </strong>)</li>
-          <li>HTML/CSS</li>
-          <li>Javascript</li>
-          <li>PHP (<strong className="dark:text-slate-500 text-rose-400"> Basic </strong>)</li>
-          <li>React JS (<strong className="dark:text-slate-500 text-rose-400"> Basic </strong>)</li>
-          <li>Next JS (<strong className="dark:text-slate-500 text-rose-400"> Advanced </strong>)</li>
-          <li>MySQL / SQL SERVER </li>
-          <li>Arduino (<strong className="dark:text-slate-500 text-rose-400"> C++ for Robotic </strong>)</li>
-          <li>Micropython (<strong className="dark:text-slate-500 text-rose-400"> Smart-Home </strong>)</li>
-        </ul>
-      </BoxList>
-      <BoxList>
-        <h4 className="text-2xl md:text-3xl font-bold underline decoration-2 text-amber-500 flex gap-4 items-center">
-          <Asterisk/>
-          Studied
-        </h4>
-
-        <div className="w-full h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 dark:from-cyan-500 dark:to-blue-500 rounded-2xl mt-2 md:mt-6"></div>
-
-        <ul className="font-bold list-disc pl-8 my-6 md:my-8 mx-0 md:mx-2 text-md md:text-lg text-white">
-          <li>RUPP (<strong className="dark:text-slate-500 text-rose-400"> C/C++  Arduino   </strong>)</li>
-          <li>ETEC Center (<strong className="dark:text-slate-500 text-rose-400"> HTML/CSS  Javascript  PHP   </strong>)</li>
-          <li>Self Study (<strong className="dark:text-slate-500 text-rose-400"> HTML/CSS Javaccript PHP React NextJS  </strong>)</li>
-        </ul>
-      </BoxList>
-    </section>
-
+    <section className='mx-auto my-8 lg:px-24 flex justify-between items-start gap-4 md:gap-8  transition_once'>
+        <div className='w-2/5 md:w-1/2 max-w-[8rem] min-w-[5rem] aspect-square overflow-hidden rounded-full my-auto'>
+          <Image src="/Profile.jpg" alt={`Profile`} width={1000} height={1000}></Image>
+        </div> 
+        <div className='text-justify md:text-lg lg:text-xl my-auto lg:px-24 indent-1'>
+          Hi, My name is
+          &nbsp;
+          <BoldU>Hor KimHouy</BoldU>
+          . I am a web developer, designing and developing website for both Front-end and Back-end.
+          I have years of experience from different companys around combodia. Currently I am in my senior year at
+          &nbsp;
+          <BoldU>Royal University of PhnomPenh.</BoldU>
+        </div>
+      </section>
   )
 }
 

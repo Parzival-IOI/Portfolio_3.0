@@ -3,6 +3,7 @@ import Navbar from '@/Components/Navbar'
 import { Metadata } from 'next'
 import { Signika } from 'next/font/google'
 import ScrollUp from '@/Components/ScrollUp'
+import Footer from '@/Components/Footer'
 
 const signika = Signika({
   subsets : ['latin'],
@@ -28,6 +29,7 @@ export default function RootLayout({
         <Navbar/>
         <main>{children}</main>
         <ScrollUp/>
+        <Footer />
       </body>
     </html>
   )

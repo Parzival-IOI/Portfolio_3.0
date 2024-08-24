@@ -3,7 +3,6 @@ import {notFound} from 'next/navigation';
 import {LinkIcon } from '@/Components/Icon'
 import Photo from '@/Components/Photo'
 import {Pacifico} from 'next/font/google'
-import Footer from '@/Components/Footer';
 import { data } from '../page';
 
 const font_style = Pacifico({
@@ -63,9 +62,6 @@ const page = async ({ params : { id } } : {params : {id: string}}) => {
           <p>Click Here to Visit </p>
           <LinkIcon></LinkIcon>
         </a>
-      </section>
-      <section className='w-4/5 md:w-1/2 mx-auto'>
-        <Footer/>
       </section>
     </div>
   )

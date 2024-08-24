@@ -1,5 +1,4 @@
 import React from 'react'
-import Footer from '@/Components/Footer';
 import Card from '@/Components/Card';
 import {Pacifico} from 'next/font/google'
 
@@ -63,7 +62,6 @@ const page = async () => {
               )
             })}
         </div>
-        <Footer/>
       </div>
     )
 }
