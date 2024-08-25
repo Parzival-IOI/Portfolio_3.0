@@ -9,7 +9,10 @@ export type image = {
 const Photo: React.FC<image>  = (props: image) => {
   return (
     <div className='w-full h-[45%] overflow-hidden'>
-      <Image src={`data:${props.image_type};base64,${props.image}`} alt="" width={1000} height={1000} className={`${"w-full h-full bg-violet-600/80 object-cover group-hover:scale-110 transition-translate duration-500 "}`}></Image>
+      {
+        props.image &&
+        <Image src={`data:${props.image_type};base64,${props.image}`} alt="" width={1000} height={1000} className={`${"w-full h-full object-cover group-hover:scale-110 transition duration-500 "}`}></Image>
+      }
     </div>
   )
 }

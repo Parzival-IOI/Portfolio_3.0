@@ -8,15 +8,30 @@ const Skill = () => {
       <section className='w-5/6 sm:w-4/6 md:w-3/5 max-w-4xl mx-auto h-auto flex justify-center items-center transition_once gap-4'>
         <a href='Resume.pdf' target="_blank" rel="noopener noreferrer" className='px-4 py-2 rounded-md text-base md:text-xl bg-cyan-700 flex justify-center items-center gap-4 hover:text-slate-300 hover:bg-cyan-600 transition-colors duration-500'>
           <Pdf/>
-          Download Resume
+          <div className="flex gap-1">
+            <div className="hidden lg:block">
+              Download
+            </div>
+            Resume
+          </div>
         </a>
         <a href='Profile.jpg' target="_blank" rel="noopener noreferrer" className='px-4 py-2 rounded-md text-base md:text-xl bg-cyan-700 flex justify-center items-center gap-4 hover:text-slate-300 hover:bg-cyan-600 transition-colors duration-500'>
           <Profile />
-          Download Profile
+          <div className="flex gap-1">
+            <div className="hidden lg:block">
+              Download
+            </div>
+            Profile
+          </div>
         </a>
         <a href='HorKimHouy_White.jpg' target="_blank" rel="noopener noreferrer" className='px-4 py-2 rounded-md text-base md:text-xl bg-cyan-700 flex justify-center items-center gap-4 hover:text-slate-300 hover:bg-cyan-600 transition-colors duration-500'>
           <Profile />
-          Download White Profile
+          <div className="flex gap-1">
+            <div className="hidden lg:block">
+              Download
+            </div>
+            Profile
+          </div>
         </a>
       </section>
       <ChartContainer title={'Essential Skill'} lists={e_skill} />

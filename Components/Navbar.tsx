@@ -48,7 +48,7 @@ const Navbar = () => {
         <div className=' h-full aspect-square rounded-full grid place-items-center '>
           <div className='p-2 md:p-3 aspect-square rounded-full grid place-items-center hover:text-slate-400'>
             {isActive = ("/" === pathname) ? true : false}
-            <Link href={"/"} key="1" className={`md:p-2 aspect-square transition-all flex justify-center items-center ${isActive ? `` : ``}`}>
+            <Link href={"/"} key="1" className={`p-2 aspect-square transition-all flex justify-center items-center ${isActive ? `` : ``}`}>
               <HomeIcon/>
             </Link>
           </div>

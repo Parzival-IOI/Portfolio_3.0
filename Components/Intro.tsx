@@ -4,7 +4,7 @@ import BoldU from "./BoldU"
 
 const Intro = () => {
   return (
-    <section className='mx-auto my-8 lg:px-24 flex justify-between items-start gap-4 md:gap-8  transition_once'>
+    <section className='mx-auto my-8 lg:px-24 flex justify-center items-center xl:items-start flex-col xl:flex-row gap-4 md:gap-8 transition_once'>
         <div className='w-2/5 md:w-1/2 max-w-[8rem] min-w-[5rem] aspect-square overflow-hidden rounded-full my-auto'>
           <Image src="/Profile.jpg" alt={`Profile`} width={1000} height={1000}></Image>
         </div> 
