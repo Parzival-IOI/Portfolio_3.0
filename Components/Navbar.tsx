@@ -1,10 +1,11 @@
 "use client"
 
 import Link from 'next/link'
-import { Close, HomeIcon, Menu } from './Icon'
+import { Close, HomeIcon, MenuBar } from './Icon'
 import { usePathname } from 'next/navigation'
 import { Inter } from 'next/font/google'
 import { useState } from 'react'
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 
 const inter = Inter({
   subsets : ['latin'],
@@ -12,21 +13,33 @@ const inter = Inter({
 })
 
 type NavName = {
-  key: number
   name: string,
   path: string|any,
 }
 
 const name: NavName[] = [
   {
-    key: 2,
-    name : 'Projects', 
-    path:'/Projects',
+    name: 'Projects', 
+    path: '/Projects',
   },
   {
-    key: 3, 
-    name : 'Contact', 
-    path:"/Contact",
+    name: 'Contact', 
+    path: '/Contact',
+  },
+  {
+    name: 'Others',
+    path: ''
+  }
+]
+
+const others: NavName[] = [
+  {
+    name: 'Saving',
+    path: '/Interest/Saving'
+  },
+  {
+    name: 'Fixed',
+    path: '/Interest/Fixed'
   }
 ]
 
@@ -54,16 +67,33 @@ const Navbar = () => {
           </div>
         </div>
         <button type='button' onClick={()=>{openSideBar()}} className={`block sm:hidden mr-6 transition-all duration-500 ${sideBar ? `fixed right-0 z-50` : `` }`}>
-          {!sideBar && <Menu/>}
+          {!sideBar && <MenuBar/>}
           {sideBar && <Close/>}
         </button>
         {sideBar && <div className='fixed left-0 top-0 w-full h-full bg-slate-800/50 delay-200 transition-opacity duration-500 block sm:hidden' onClick={()=>{openSideBar()}}></div>}
         
         <div className={`fixed w-1/2 h-full top-0 bg-slate-800/95 transition-all duration-500  flex justify-center items-center flex-col gap-y-16 text-xl mr-6 lg:gap-6 font-bold sm:bg-transparent sm:flex-row sm:w-auto sm:relative sm:left-0 sm:text-base sm:gap-4 ${sideBar ? `left-1/2` : `left-full` }`}>
-          {name.map((items)=>{
+          {name.map((items, index)=>{
             isActive = (items.path === pathname) ? true : false;
+            if(index == name.length-1) {
+              return (
+                <Menu key={index}>
+                  <MenuButton className="px-1 py-1 hover:text-slate-300 relative transition-all duration-300 before:content-[''] before:transition-all before:absolute before:bottom-0 before:left-0 before:rounded-md before:h-[8%] before:bg-white data-[active]:before:w-full before:w-0 hover:before:w-full">{items.name}</MenuButton>
+                  <MenuItems anchor="bottom">
+                    {others.map((link) => (
+                      <div className="block data-[focus]:bg-blue-100 z-50">
+                        <MenuItem key={link.path} >
+                          <Link href={link.path}>{link.name}</Link>
+                        </MenuItem>
+                      </div>
+                      
+                    ))}
+                  </MenuItems>
+                </Menu> 
+              )
+            }
             return (
-              <Link onClick={()=>{openSideBar()}} href={{pathname: items.path}} key={items.key} className={`px-1 py-1 hover:text-slate-300 relative transition-all duration-300 before:content-[''] before:transition-all before:absolute before:bottom-0 before:left-0 before:rounded-md before:h-[8%] before:bg-white  ${isActive ? `before:w-full` : `before:w-0 hover:before:w-full`}`}>{items.name}</Link>
+              <Link onClick={()=>{openSideBar()}} href={{pathname: items.path}} key={index} className={`px-1 py-1 hover:text-slate-300 relative transition-all duration-300 before:content-[''] before:transition-all before:absolute before:bottom-0 before:left-0 before:rounded-md before:h-[8%] before:bg-white  ${isActive ? `before:w-full` : `before:w-0 hover:before:w-full`}`}>{items.name}</Link>
           )})}
         </div>
       </div>

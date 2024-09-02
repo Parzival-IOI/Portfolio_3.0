@@ -95,78 +95,86 @@ const page = () => {
     return `${date.getDate()}-${date.toLocaleString('default', { month: 'short' })}-${date.getFullYear()}`
   }
 
+  function defaultDate() {
+    const today = new Date();
+    const numberOfDaysToAdd = 3;
+    const date = today.setDate(today.getDate() + numberOfDaysToAdd); 
+    return new Date(date).toISOString().split('T')[0]
+  }
+
   return (
     <div className="min-h-screen bg-[#0f1b31] text-[#7cc7d4]">
       <div className="p-8 md:py-20 md:px-32 max-w-7xl mx-auto">
         <section className="pt-8 lg:pt-4 w-full h-auto grid grid-cols-1 md:grid-cols-2 gap-2">
           
           <div className="mt-2">
-            <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <span className="flex select-none items-center px-3 sm:text-sm border-r-2">Principal</span>
+            <div className="flex flex-row-reverse rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+              {/* flex reverse because of using peer from tailwind */}
               <input type="text" name="principal" id="principal" autoComplete="principal" 
-                className="block flex-1 border-0 bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
+                className="block flex-1 peer border-0 outline-none bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
                 placeholder="initial money" 
                 defaultValue={principal.toString()}
                 onChange={e => {
                   setPrincipal(parseFloat(e.target.value))
                 }}
               />
+              <span className="flex select-none items-center px-3 sm:text-sm border-r border-white peer-focus:border-r-2 peer-focus:border-indigo-600" >Principal</span>
             </div>
           </div>
 
           
           <div className="mt-2">
-            <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <span className="flex select-none items-center px-3 sm:text-sm border-r-2">Tenor</span>
+            <div className="flex flex-row-reverse rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
               <input type="text" name="tenor" id="tenor" autoComplete="tenor" 
-              className="block flex-1 border-0 bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
+              className="block flex-1 peer border-0 outline-none bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
               onChange={e => setTenor(parseFloat(e.target.value))}
               defaultValue={tenor.toString()}
               placeholder="Days" />
+              <span className="flex select-none items-center px-3 sm:text-sm border-r border-white peer-focus:border-r-2 peer-focus:border-indigo-600">Tenor</span>
             </div>
           </div>
 
           <div className="mt-2">
-            <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <span className="flex select-none items-center px-3 sm:text-sm border-r-2">Start Date</span>
+            <div className="flex flex-row-reverse rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
               <input type="date" name="start" id="start" autoComplete="start" 
-              className="block flex-1 border-0 bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
+              className="block flex-1 peer border-0 outline-none bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
               onChange={e => setStart(new Date(e.target.value))}
-              defaultValue={formatDate(start)}
+              defaultValue={defaultDate()}
               placeholder="Date" />
+              <span className="flex select-none items-center px-3 sm:text-sm border-r border-white peer-focus:border-r-2 peer-focus:border-indigo-600">Start Date</span>
             </div>
           </div>
 
           <div className="mt-2">
-            <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <span className="flex select-none items-center px-3 sm:text-sm border-r-2">Days</span>
+            <div className="flex flex-row-reverse rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
               <input type="text" name="days" id="days" autoComplete="days" 
-              className="block flex-1 border-0 bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
+              className="block flex-1 peer border-0 outline-none bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
               onChange={e => setDays(parseFloat(e.target.value))}
               defaultValue={days.toString()}
               placeholder="Days Interest" />
+              <span className="flex select-none items-center px-3 sm:text-sm border-r border-white peer-focus:border-r-2 peer-focus:border-indigo-600">Days</span>
             </div>
           </div>
           
           <div className="mt-2">
-            <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <span className="flex select-none items-center px-3 sm:text-sm border-r-2">Rate</span>
+            <div className="flex flex-row-reverse rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
               <input type="text" name="rate" id="rate" autoComplete="rate" 
-              className="block flex-1 border-0 bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
+              className="block flex-1 peer border-0 outline-none bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
               onChange={e => setRate(parseFloat(e.target.value))}
               defaultValue={rate.toString()}
               placeholder="Percentage" />
+              <span className="flex select-none items-center px-3 sm:text-sm border-r border-white peer-focus:border-r-2 peer-focus:border-indigo-600">Rate</span>
             </div>
           </div>
 
           <div className="mt-2">
-            <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <span className="flex select-none items-center px-3 sm:text-sm border-r-2">Tax</span>
+            <div className="flex flex-row-reverse rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
               <input type="text" name="tax" id="tax" autoComplete="tax" 
-              className="block flex-1 border-0 bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
+              className="block flex-1 peer border-0 outline-none bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
               onChange={e => setTax(parseFloat(e.target.value))}
               defaultValue={tax.toString()}
               placeholder="Percentage" />
+              <span className="flex select-none items-center px-3 sm:text-sm border-r border-white peer-focus:border-r-2 peer-focus:border-indigo-600">Tax</span>
             </div>
           </div>
 
