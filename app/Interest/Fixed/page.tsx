@@ -1,17 +1,19 @@
 'use client';
 
-import { useState } from "react";
+import React, { useState } from "react";
 
 const page = () => {
 
-  const [principal, setPrincipal] = useState<number>(0);
-  const [rate, setRate] = useState<number>(0);
-  const [tenor, setTenor] = useState<number>(0);
+  const [principal, setPrincipal] = useState<number>(10000);
+  const [rate, setRate] = useState<number>(3.25);
+  const [tenor, setTenor] = useState<number>(365);
   const [start, setStart] = useState<Date>(new Date());
-  const [days, setDays] = useState<number>(0);
-  const [tax, setTax] = useState<number>(0);
+  const [days, setDays] = useState<number>(365);
+  const [tax, setTax] = useState<number>(6);
   const [total, setTotal] = useState<number>(0);
   const [monthly, setMonthly] = useState<{from: Date, until: Date, days: number, interest: number}[]>([]);
+  const [total_monthly, setTotalMonthly] = useState<number>(0);
+
 
 
   const interestRate = () => {
@@ -40,23 +42,51 @@ const page = () => {
     let da = days;
     let begin = start;
     const new_monthly = [];
+    let monthly_calc = 0;
 
     do{
 
       const from = new Date(begin);
       const until = new Date(begin.setMonth(begin.getMonth() + 1))
-
       const diff = daysBetween(from, until);
 
-      new_monthly.push({from: from, until: new Date(until), days: diff, interest: ((principal*(rate/100))/tenor)*diff})
+      if(da <= diff) {
+
+        const end_date = new Date(until);
+
+        for(let i=0; i<da; i++) {
+          end_date.setDate(end_date.getDate() + 1)
+        }
+
+        const interest = ((principal*(rate/100))/tenor)*da;
+        monthly_calc = monthly_calc + parseFloat(interest.toFixed(2));
+
+        new_monthly.push({from: from, until: end_date, days: da, interest: interest})
+
+        break;
+      }
+
+      const interest = ((principal*(rate/100))/tenor)*diff;
+      monthly_calc = monthly_calc + parseFloat(interest.toFixed(2));
+
+      new_monthly.push({from: from, until: new Date(until), days: diff, interest: interest})
+
+      console.log(da);
 
       da = da - diff
 
       begin = until;
+    
 
-    } while(da>0)
+    } while(da > 0);
 
-      setMonthly(new_monthly);
+    // if (da > 0) {
+
+    // }
+    
+
+    setMonthly(new_monthly);
+    setTotalMonthly(monthly_calc);
       
 
   }
@@ -132,7 +162,7 @@ const page = () => {
           <div className="mt-2">
             <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
               <span className="flex select-none items-center px-3 sm:text-sm border-r-2">Tax</span>
-              <input type="text" name="rate" id="rate" autoComplete="rate" 
+              <input type="text" name="tax" id="tax" autoComplete="tax" 
               className="block flex-1 border-0 bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
               onChange={e => setTax(parseFloat(e.target.value))}
               defaultValue={tax.toString()}
@@ -167,20 +197,21 @@ const page = () => {
           <Column content="with tax interest" title={true} />
           <Column content="w/o tax interest" title={true} />
           {
-            monthly.map((e, ind) => {
+            monthly.map((e, index) => {
               return (
-                <>
+                <React.Fragment key={index}>
                   <Column content={formatDate(e.from)} title={false} />
                   <Column content={formatDate(e.until)} title={false} />
                   <Column content={`${e.days} days`} title={false} />
                   <Column content={`${e.interest.toFixed(4)} $`} title={false} />
                   <Column content={`${(e.interest * ( 1 - (tax/100))).toFixed(4)} $`} title={false} />
-                </>
+                </React.Fragment>
               )
             })
           }
         </section>
-          
+        
+        {total_monthly}
         
         
       </div>
