@@ -4,12 +4,12 @@ import React, { useState } from "react";
 
 const page = () => {
 
-  const [principal, setPrincipal] = useState<number>(10000);
-  const [rate, setRate] = useState<number>(3.25);
-  const [tenor, setTenor] = useState<number>(365);
+  const [principal, setPrincipal] = useState<number>(0);
+  const [rate, setRate] = useState<number>(0);
+  const [tenor, setTenor] = useState<number>(0);
   const [start, setStart] = useState<Date>(new Date());
-  const [days, setDays] = useState<number>(365);
-  const [tax, setTax] = useState<number>(6);
+  const [days, setDays] = useState<number>(0);
+  const [tax, setTax] = useState<number>(0);
   const [total, setTotal] = useState<number>(0);
   const [monthly, setMonthly] = useState<{from: Date, until: Date, days: number, interest: number}[]>([]);
   const [total_monthly, setTotalMonthly] = useState<number>(0);
