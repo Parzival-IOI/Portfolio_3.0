@@ -40,6 +40,10 @@ const others: NavName[] = [
   {
     name: 'Fixed',
     path: '/Interest/Fixed'
+  }, 
+  {
+    name: 'Payroll',
+    path: '/Temporary'
   }
 ]
 
@@ -80,8 +84,8 @@ const Navbar = () => {
                 <Menu key={index}>
                   <MenuButton className="px-1 py-1 hover:text-slate-300 relative transition-all duration-300 before:content-[''] before:transition-all before:absolute before:bottom-0 before:left-0 before:rounded-md before:h-[8%] before:bg-white data-[active]:before:w-full before:w-0 hover:before:w-full">{items.name}</MenuButton>
                   <MenuItems anchor="bottom">
-                    {others.map((link) => (
-                      <div className="block data-[focus]:bg-blue-100 z-50">
+                    {others.map((link, index) => (
+                      <div key={index} className="block data-[focus]:bg-blue-100 z-50">
                         <MenuItem key={link.path} >
                           <Link href={link.path}>{link.name}</Link>
                         </MenuItem>
