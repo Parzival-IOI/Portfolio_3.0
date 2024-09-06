@@ -15,12 +15,11 @@ const page = () => {
 
   const options = [
     {id: 1, name: "PAYROLL"},
-    {id: 2, name: "TESTING"},
+    {id: 2, name: "Compare"},
     {id: 3, name: "TESTING2"},
   ]
   const [payroll, setPayroll] = useState<string>();
   const [account, setAccount] = useState<string>();
-  const [payrollcut, setPayrollcut] = useState<payroll_type[]>([]);
   const [option, setOption] = useState(options[0]);
   const [result, setResult] = useState<string[]>([]);
 
@@ -28,30 +27,28 @@ const page = () => {
 
 
   function insertPayroll(text: string) {
-    const convert = text.split("\n");
-    const array: payroll_type[] = [];
-
-    convert.map((value) => {
-      if(value == "") {
-        return;
-      }
-      const each_val = value.split(",");
-      const combine_object: payroll_type = {
-        branch: parseInt(each_val[0]),
-        account: each_val[1],
-        salary: each_val[2],
-      }
-      array.push(combine_object);
-    })
-
-    setPayroll(text);
-    setPayrollcut(array);
+    
   }
 
   function resolved() {
     const data: string[] = [];
     
+    
     if(option.name === options[0].name) {
+      const convert = payroll?.split("\n");
+      const payrollcut: payroll_type[] = [];
+      convert?.map((value) => {
+        if(value == "") {
+          return;
+        }
+        const each_val = value.split(",");
+        const combine_object: payroll_type = {
+          branch: parseInt(each_val[0]),
+          account: each_val[1],
+          salary: each_val[2],
+        } 
+        payrollcut.push(combine_object);
+      })
       const accounts = account?.split('\n');
       payrollcut.forEach((information) => {
         accounts?.map(e => {
@@ -62,6 +59,39 @@ const page = () => {
       })
       setResult(data);
     }
+
+    if(option.name === options[1].name) {
+
+      const payrolls: string[] = payroll!.split("\n");
+      const accounts: string[] = account!.split("\n");
+
+      const merge: string[] = arrayUnique(payrolls.concat(accounts));
+      
+      payrolls.forEach((pr) => {
+        accounts.forEach((ac) => {
+          if(pr == ac) {
+            const index = merge.indexOf(ac);
+            if (index > -1) {
+              merge.splice(index, 1);
+            }
+          }
+        })
+      })
+
+      setResult(merge);
+    }
+
+  }
+  function arrayUnique(array: string[]) {
+    let a = array.concat();
+    for(let i=0; i<a.length; ++i) {
+        for(let j=i+1; j<a.length; ++j) {
+            if(a[i] === a[j])
+                a.splice(j--, 1);
+        }
+    }
+
+    return a;
   }
 
   return (
@@ -76,7 +106,7 @@ const page = () => {
                 rows={6}
                 defaultValue={payroll}
                 onChange={e => {
-                  insertPayroll(e.target.value)
+                  setPayroll(e.target.value)
                 }}
               >
 
