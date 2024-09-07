@@ -83,9 +83,9 @@ const Navbar = () => {
               return (
                 <Menu key={index}>
                   <MenuButton className="px-1 py-1 hover:text-slate-300 relative transition-all duration-300 before:content-[''] before:transition-all before:absolute before:bottom-0 before:left-0 before:rounded-md before:h-[8%] before:bg-white data-[active]:before:w-full before:w-0 hover:before:w-full">{items.name}</MenuButton>
-                  <MenuItems anchor="bottom">
+                  <MenuItems anchor="bottom" className={`z-50 flex justify-center items-center flex-col gap-1 bg-indigo-800/20 rounded-md overflow-clip min-w-24`} >
                     {others.map((link, index) => (
-                      <div key={index} className="block data-[focus]:bg-blue-100 z-50">
+                      <div key={index} className="block w-full z-50 hover:bg-indigo-700/90 text-center p-2 transition duration-500">
                         <MenuItem key={link.path} >
                           <Link href={link.path}>{link.name}</Link>
                         </MenuItem>

@@ -1,97 +1,39 @@
 'use client';
 
 import { Copy } from "@/Components/Icon";
+import { op1, op2, op3 } from "@/libs/payroll";
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
 import { useState } from "react";
-
-export type payroll_type = {
-  branch: number,
-  account: string,
-  salary: string
-}
 
 
 const page = () => {
 
   const options = [
-    {id: 1, name: "PAYROLL"},
-    {id: 2, name: "Compare"},
-    {id: 3, name: "TESTING2"},
+    {id: 1, name: "GET PAYROLL FROM ACCOUNT"},
+    {id: 2, name: "COMPARE ACCOUNT"},
+    {id: 3, name: "COMPARE PAYROLL & ACCOUNT"},
   ]
-  const [payroll, setPayroll] = useState<string>();
-  const [account, setAccount] = useState<string>();
+  const [payroll, setPayroll] = useState<string>("");
+  const [account, setAccount] = useState<string>("");
   const [option, setOption] = useState(options[0]);
   const [result, setResult] = useState<string[]>([]);
 
-  
-
-
-  function insertPayroll(text: string) {
-    
-  }
-
-  function resolved() {
-    const data: string[] = [];
-    
-    
+  const resolved = () => {
     if(option.name === options[0].name) {
-      const convert = payroll?.split("\n");
-      const payrollcut: payroll_type[] = [];
-      convert?.map((value) => {
-        if(value == "") {
-          return;
-        }
-        const each_val = value.split(",");
-        const combine_object: payroll_type = {
-          branch: parseInt(each_val[0]),
-          account: each_val[1],
-          salary: each_val[2],
-        } 
-        payrollcut.push(combine_object);
-      })
-      const accounts = account?.split('\n');
-      payrollcut.forEach((information) => {
-        accounts?.map(e => {
-          if(e === information.account) {
-            data.push(`${information.branch},${information.account},${information.salary}`)
-          }
-        })
-      })
+      const data: string[] = op1(payroll, account);
       setResult(data);
     }
 
     if(option.name === options[1].name) {
-
-      const payrolls: string[] = payroll!.split("\n");
-      const accounts: string[] = account!.split("\n");
-
-      const merge: string[] = arrayUnique(payrolls.concat(accounts));
-      
-      payrolls.forEach((pr) => {
-        accounts.forEach((ac) => {
-          if(pr == ac) {
-            const index = merge.indexOf(ac);
-            if (index > -1) {
-              merge.splice(index, 1);
-            }
-          }
-        })
-      })
-
+      const merge: string[] = op2(payroll, account);
       setResult(merge);
     }
 
-  }
-  function arrayUnique(array: string[]) {
-    let a = array.concat();
-    for(let i=0; i<a.length; ++i) {
-        for(let j=i+1; j<a.length; ++j) {
-            if(a[i] === a[j])
-                a.splice(j--, 1);
-        }
+    if(option.name === options[2].name) {
+      const data: string[] = op3(payroll, account);
+      setResult(data)
     }
 
-    return a;
   }
 
   return (
@@ -109,9 +51,7 @@ const page = () => {
                   setPayroll(e.target.value)
                 }}
               >
-
               </textarea>
-              <span className="flex select-none items-center px-3 sm:text-sm border-r border-white peer-focus:border-r-2 peer-focus:border-indigo-600" >Payroll</span>
             </div>
           </div>
           <div className="mt-2">
@@ -126,7 +66,6 @@ const page = () => {
                 }}
               >
               </textarea>
-              <span className="flex select-none items-center px-3 sm:text-sm border-r border-white peer-focus:border-r-2 peer-focus:border-indigo-600" >Account</span>
             </div>
           </div>
           <div className="mt-2">
@@ -136,7 +75,7 @@ const page = () => {
                 <ListboxOptions anchor="bottom" className={'bg-indigo-800/20 text-inherit rounded-md overflow-hidden'}>
                   {options.map((val) => (
                     <ListboxOption key={val.id} value={val} 
-                    className="py-2 px-8 hover:bg-indigo-700/90 transition duration-500">
+                    className="py-2 px-8 hover:bg-indigo-700/90 transition duration-500 text-xs">
                       {val.name}
                     </ListboxOption>
                   ))}
@@ -152,7 +91,7 @@ const page = () => {
             <button type="button" 
             onClick={resolved}
             className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-              Resolved
+              Resolve
             </button>
           </div>
 
