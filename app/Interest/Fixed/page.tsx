@@ -40,7 +40,7 @@ const page = () => {
   const monthlyInterest = () => {
 
     let da = days;
-    let begin = start;
+    let begin = new Date(start);
     const new_monthly = [];
     let monthly_calc = 0;
 
@@ -95,10 +95,10 @@ const page = () => {
     return `${date.getDate()}-${date.toLocaleString('default', { month: 'short' })}-${date.getFullYear()}`
   }
 
-  function defaultDate() {
+  function defaultDate(): string {
     const today = new Date();
     const numberOfDaysToAdd = 3;
-    const date = today.setDate(today.getDate() + numberOfDaysToAdd); 
+    const date = today.setDate(today.getDate() + numberOfDaysToAdd);
     return new Date(date).toISOString().split('T')[0]
   }
 
