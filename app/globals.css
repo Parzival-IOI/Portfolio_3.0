@@ -24,3 +24,11 @@
         opacity: 1;
     }
 }
+
+.number_wo_arrow::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.number_wo_arrow {
+    appearance: textfield;
+}

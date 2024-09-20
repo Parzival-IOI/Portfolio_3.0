@@ -1,5 +1,7 @@
 'use client';
 
+import Column from "@/Components/Column";
+import { defaultDate, formatDate } from "@/libs/helper";
 import React, { useState } from "react";
 
 const page = () => {
@@ -91,16 +93,8 @@ const page = () => {
 
   }
 
-  function formatDate(date : Date) {
-    return `${date.getDate()}-${date.toLocaleString('default', { month: 'short' })}-${date.getFullYear()}`
-  }
 
-  function defaultDate(): string {
-    const today = new Date();
-    const numberOfDaysToAdd = 3;
-    const date = today.setDate(today.getDate() + numberOfDaysToAdd);
-    return new Date(date).toISOString().split('T')[0]
-  }
+  
 
   return (
     <div className="min-h-screen bg-[#0f1b31] text-[#7cc7d4]">
@@ -230,9 +224,3 @@ const page = () => {
 export default page
 
 
-
-const Column = (props:{content: string, title: boolean}) => {
-  return (
-    <div className={` p-1 text-center ${props.title ? 'bg-[#23427b]' : 'bg-[#0f1b31]'}`} >{props.content}</div>
-  )
-}

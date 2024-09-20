@@ -11,7 +11,8 @@ const page = () => {
   const options = [
     {id: 1, name: "GET PAYROLL FROM ACCOUNT"},
     {id: 2, name: "COMPARE ACCOUNT"},
-    {id: 3, name: "COMPARE PAYROLL & ACCOUNT"},
+    // role under maintainance
+    // {id: 3, name: "COMPARE PAYROLL & ACCOUNT"},
   ]
   const [payroll, setPayroll] = useState<string>("");
   const [account, setAccount] = useState<string>("");
@@ -29,10 +30,10 @@ const page = () => {
       setResult(merge);
     }
 
-    if(option.name === options[2].name) {
-      const data: string[] = op3(payroll, account);
-      setResult(data)
-    }
+    // if(option.name === options[2].name) {
+    //   const data: string[] = op3(payroll, account);
+    //   setResult(data)
+    // }
 
   }
 

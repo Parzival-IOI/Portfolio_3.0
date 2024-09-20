@@ -8,3 +8,18 @@ export function arrayUnique(array: string[]) {
   }
   return a;
 }
+
+export function defaultDate(): string {
+  const today = new Date();
+  const numberOfDaysToAdd = 3;
+  const date = today.setDate(today.getDate() + numberOfDaysToAdd);
+  return new Date(date).toISOString().split('T')[0]
+}
+
+export function daysInMonth (month: number, year: number) {
+  return new Date(year, month, 0).getDate();
+}
+
+export function formatDate(date : any) {
+  return `${date.getDate()}-${date.toLocaleString('default', { month: 'short' })}-${date.getFullYear()}`
+}
