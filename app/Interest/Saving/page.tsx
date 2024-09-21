@@ -138,7 +138,7 @@ const page = () => {
             <div className="flex flex-row-reverse rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
               <textarea name="Rate" id="Rate" autoComplete="Rate" 
                 className="block flex-1 peer border-0 outline-none bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
-                placeholder="Rate Information" 
+                placeholder={"<,1000,5\n>,1000,10\n=,1000,10"}
                 rows={6}
                 defaultValue={rate.join("\n")}
                 onChange={e => {
