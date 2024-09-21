@@ -102,7 +102,6 @@ const page = () => {
       tax: JSON.parse(JSON.stringify(sum_count * ( 1 - (tax/100))))
     })
 
-
   }
 
   return (
@@ -196,7 +195,6 @@ const page = () => {
                   Calculate Sum In Month
                 </button>
               </div>
-
               <div>{sum?.full}</div>
               <div>{sum?.tax}</div>
           </section>
