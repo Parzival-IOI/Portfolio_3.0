@@ -25,7 +25,7 @@ const page = async ({ params : { id } } : {params : {id: string}}) => {
     return notFound();
   }
 
-  const project : data = await response.json();
+  const project : data = (await response.json()).data;
   const created = new Date(project.created_at);
 
 

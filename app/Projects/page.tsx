@@ -9,7 +9,7 @@ const font_style = Pacifico({
 })
 
 export type ProjectsResponse = {
-  data: data[],
+  items: data[],
   column: number,
 }
 
@@ -50,13 +50,13 @@ const page = async () => {
       throw new Error('No data');
     }
 
-    const projects : ProjectsResponse = await response.json()
+    const projects : ProjectsResponse = (await response.json()).data;
 
     return (
       <div className='max-w-6xl mx-auto'>
         <h1 className={`${font_style.className} w-full pt-24 text-4xl text-center font-bold underline underline-offset-4`}>Project</h1>
         <div className='w-full p-8 pt-16 md:16 flex justify-center items-center flex-wrap gap-10 md:gap-16 mb-16'>
-          {projects && projects.data.map((item: data) => {
+          {projects && projects.items.map((item: data) => {
               return(
                 <Card item={item} key={item.id}/>
               )
