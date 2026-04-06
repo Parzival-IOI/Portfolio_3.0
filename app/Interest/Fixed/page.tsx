@@ -97,107 +97,86 @@ const page = () => {
   
 
   return (
-    <div className="min-h-screen bg-[#0f1b31] text-[#7cc7d4]">
-      <div className="p-8 md:py-20 md:px-32 max-w-7xl mx-auto">
-        <section className="pt-8 lg:pt-4 w-full h-auto grid grid-cols-1 md:grid-cols-2 gap-2">
+    <div className="min-h-screen">
+      <div className="px-6 py-20 max-w-3xl mx-auto">
+        <h1 className="text-2xl font-light tracking-tight text-center mb-8">Fixed Interest</h1>
+        <section className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           
-          <div className="mt-2">
-            <div className="flex flex-row-reverse rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              {/* flex reverse because of using peer from tailwind */}
-              <input type="text" name="principal" id="principal" autoComplete="principal" 
-                className="block flex-1 peer border-0 outline-none bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
-                placeholder="initial money" 
-                defaultValue={principal.toString()}
-                onChange={e => {
-                  setPrincipal(parseFloat(e.target.value))
-                }}
-              />
-              <span className="flex select-none items-center px-3 sm:text-sm border-r border-white peer-focus:border-r-2 peer-focus:border-indigo-600" >Principal</span>
-            </div>
+          <div>
+            <label className="block text-xs text-neutral-500 mb-1">Principal</label>
+            <input type="text" name="principal" id="principal"
+              className="w-full bg-transparent border border-neutral-800 rounded-md px-3 py-2 text-sm text-neutral-200 placeholder:text-neutral-600 outline-none focus:border-neutral-500 transition-colors" 
+              placeholder="Initial money" 
+              defaultValue={principal.toString()}
+              onChange={e => setPrincipal(parseFloat(e.target.value))}
+            />
           </div>
 
-          
-          <div className="mt-2">
-            <div className="flex flex-row-reverse rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <input type="text" name="tenor" id="tenor" autoComplete="tenor" 
-              className="block flex-1 peer border-0 outline-none bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
+          <div>
+            <label className="block text-xs text-neutral-500 mb-1">Tenor</label>
+            <input type="text" name="tenor" id="tenor"
+              className="w-full bg-transparent border border-neutral-800 rounded-md px-3 py-2 text-sm text-neutral-200 placeholder:text-neutral-600 outline-none focus:border-neutral-500 transition-colors" 
               onChange={e => setTenor(parseFloat(e.target.value))}
               defaultValue={tenor.toString()}
               placeholder="Days" />
-              <span className="flex select-none items-center px-3 sm:text-sm border-r border-white peer-focus:border-r-2 peer-focus:border-indigo-600">Tenor</span>
-            </div>
           </div>
 
-          <div className="mt-2">
-            <div className="flex flex-row-reverse rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <input type="date" name="start" id="start" autoComplete="start" 
-              className="block flex-1 peer border-0 outline-none bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
+          <div>
+            <label className="block text-xs text-neutral-500 mb-1">Start Date</label>
+            <input type="date" name="start" id="start"
+              className="w-full bg-transparent border border-neutral-800 rounded-md px-3 py-2 text-sm text-neutral-200 outline-none focus:border-neutral-500 transition-colors" 
               onChange={e => setStart(new Date(e.target.value))}
-              defaultValue={defaultDate()}
-              placeholder="Date" />
-              <span className="flex select-none items-center px-3 sm:text-sm border-r border-white peer-focus:border-r-2 peer-focus:border-indigo-600">Start Date</span>
-            </div>
+              defaultValue={defaultDate()} />
           </div>
 
-          <div className="mt-2">
-            <div className="flex flex-row-reverse rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <input type="text" name="days" id="days" autoComplete="days" 
-              className="block flex-1 peer border-0 outline-none bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
+          <div>
+            <label className="block text-xs text-neutral-500 mb-1">Days</label>
+            <input type="text" name="days" id="days"
+              className="w-full bg-transparent border border-neutral-800 rounded-md px-3 py-2 text-sm text-neutral-200 placeholder:text-neutral-600 outline-none focus:border-neutral-500 transition-colors" 
               onChange={e => setDays(parseFloat(e.target.value))}
               defaultValue={days.toString()}
               placeholder="Days Interest" />
-              <span className="flex select-none items-center px-3 sm:text-sm border-r border-white peer-focus:border-r-2 peer-focus:border-indigo-600">Days</span>
-            </div>
           </div>
           
-          <div className="mt-2">
-            <div className="flex flex-row-reverse rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <input type="text" name="rate" id="rate" autoComplete="rate" 
-              className="block flex-1 peer border-0 outline-none bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
+          <div>
+            <label className="block text-xs text-neutral-500 mb-1">Rate</label>
+            <input type="text" name="rate" id="rate"
+              className="w-full bg-transparent border border-neutral-800 rounded-md px-3 py-2 text-sm text-neutral-200 placeholder:text-neutral-600 outline-none focus:border-neutral-500 transition-colors" 
               onChange={e => setRate(parseFloat(e.target.value))}
               defaultValue={rate.toString()}
               placeholder="Percentage" />
-              <span className="flex select-none items-center px-3 sm:text-sm border-r border-white peer-focus:border-r-2 peer-focus:border-indigo-600">Rate</span>
-            </div>
           </div>
 
-          <div className="mt-2">
-            <div className="flex flex-row-reverse rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <input type="text" name="tax" id="tax" autoComplete="tax" 
-              className="block flex-1 peer border-0 outline-none bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
+          <div>
+            <label className="block text-xs text-neutral-500 mb-1">Tax</label>
+            <input type="text" name="tax" id="tax"
+              className="w-full bg-transparent border border-neutral-800 rounded-md px-3 py-2 text-sm text-neutral-200 placeholder:text-neutral-600 outline-none focus:border-neutral-500 transition-colors" 
               onChange={e => setTax(parseFloat(e.target.value))}
               defaultValue={tax.toString()}
               placeholder="Percentage" />
-              <span className="flex select-none items-center px-3 sm:text-sm border-r border-white peer-focus:border-r-2 peer-focus:border-indigo-600">Tax</span>
-            </div>
           </div>
 
-
-
-          <div className="mt-2 sm:max-w-md">
-            <button type="submit" 
-            onClick={interestRate}
-            className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          <div className="sm:col-span-2">
+            <button type="button" 
+              onClick={interestRate}
+              className="px-4 py-2 text-sm border border-neutral-700 rounded-md text-neutral-300 hover:text-white hover:border-neutral-500 transition-colors">
               Calculate
             </button>
           </div>
           
         </section>
-        <section className="py-4 flex justify-center items-center gap-4">
-          <div>
-            With Tax: {total}
-          </div>
-          <div>
-            Without Tax: {total * ( 1 - (tax/100))}
-          </div>
+
+        <section className="mt-6 flex items-center gap-6 text-sm text-neutral-400">
+          <span>With Tax: {total.toFixed(4)}</span>
+          <span>Without Tax: {(total * ( 1 - (tax/100))).toFixed(4)}</span>
         </section>
         
-        <section className="grid grid-cols-5 gap-0.5 p-0.5 bg-white content-center">
+        <section className="grid grid-cols-5 gap-px mt-6 border border-neutral-800 rounded-md overflow-hidden">
           <Column content="From" title={true} />
           <Column content="To" title={true} />
           <Column content="Days" title={true} />
-          <Column content="with tax interest" title={true} />
-          <Column content="w/o tax interest" title={true} />
+          <Column content="With Tax" title={true} />
+          <Column content="W/O Tax" title={true} />
           {
             monthly.map((e, index) => {
               return (
@@ -213,8 +192,7 @@ const page = () => {
           }
         </section>
         
-        {total_monthly}
-        
+        {total_monthly > 0 && <p className="mt-4 text-sm text-neutral-500">Total: {total_monthly.toFixed(4)}</p>}
         
       </div>
     </div>
@@ -222,5 +200,3 @@ const page = () => {
 }
 
 export default page
-
-

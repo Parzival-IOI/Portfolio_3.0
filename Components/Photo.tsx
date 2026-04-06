@@ -8,10 +8,10 @@ export type image = {
 
 const Photo: React.FC<image>  = (props: image) => {
   return (
-    <div className='w-full h-[45%] overflow-hidden'>
+    <div className='w-full aspect-video overflow-hidden bg-neutral-900'>
       {
         props.image &&
-        <Image src={`data:${props.image_type};base64,${props.image}`} alt="" width={1000} height={1000} className={`${"w-full h-full object-cover group-hover:scale-110 transition duration-500 "}`}></Image>
+        <Image src={`data:${props.image_type};base64,${props.image}`} alt="" width={1000} height={1000} className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300' />
       }
     </div>
   )

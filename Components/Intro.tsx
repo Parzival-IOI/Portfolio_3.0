@@ -1,23 +1,16 @@
 import Image from "next/image"
-import BoldU from "./BoldU"
-
 
 const Intro = () => {
   return (
-    <section className='mx-auto my-8 lg:px-24 flex justify-center items-center xl:items-start flex-col xl:flex-row gap-4 md:gap-8 transition_once'>
-        <div className='w-2/5 md:w-1/2 max-w-[8rem] min-w-[5rem] aspect-square overflow-hidden rounded-full my-auto'>
-          <Image src="/Profile.jpg" alt={`Profile`} width={1000} height={1000}></Image>
-        </div> 
-        <div className='text-justify md:text-lg lg:text-xl my-auto lg:px-24 indent-1'>
-          Hi, My name is
-          &nbsp;
-          <BoldU>Hor KimHouy</BoldU>
-          . I am a web developer, designing and developing website for both Front-end and Back-end.
-          I have years of experience from different companys around combodia. Currently I am in my senior year at
-          &nbsp;
-          <BoldU>Royal University of PhnomPenh.</BoldU>
-        </div>
-      </section>
+    <section className='mx-auto mb-16 flex flex-col items-center gap-6 transition_once'>
+      <div className='w-20 h-20 overflow-hidden rounded-full ring-1 ring-neutral-700'>
+        <Image src="/Profile.jpg" alt="Profile" width={200} height={200} className="w-full h-full object-cover" />
+      </div> 
+      <p className='text-center text-neutral-400 text-sm sm:text-base leading-relaxed max-w-lg'>
+        Hi, I&apos;m <span className='text-white font-medium'>Hor KimHouy</span>. A web developer designing and building
+        front-end and back-end solutions. Currently in my senior year at <span className='text-white font-medium'>Royal University of Phnom Penh</span>.
+      </p>
+    </section>
   )
 }
 

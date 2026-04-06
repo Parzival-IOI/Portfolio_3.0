@@ -2,33 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-.background {
-    background-color: rgb(5, 2, 41);
+@layer base {
+  body {
+    @apply bg-[#0a0a0a] text-neutral-200 antialiased;
+  }
+
+  ::selection {
+    @apply bg-neutral-700 text-white;
+  }
 }
 
 .transition_once {
-    animation-name: smooth_opening;
-    animation-duration: 1000ms;
-    animation-timing-function: ease-out;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+  animation: fade-up 0.6s ease-out forwards;
 }
 
-@keyframes smooth_opening {
-    from {
-        transform: translateY(10rem);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0rem);
-        opacity: 1;
-    }
+@keyframes fade-up {
+  from {
+    transform: translateY(1.5rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .number_wo_arrow::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 .number_wo_arrow {
-    appearance: textfield;
+  appearance: textfield;
 }

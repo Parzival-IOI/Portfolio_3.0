@@ -5,10 +5,10 @@ import Skill from '@/Components/Skill'
 
 const page = () => {
   return (
-    <div className='min-h-[120vh] text-[#7cc7d4] '>
-      <Parallax></Parallax>
-      <div className='bg-[#0f1b31]'>
-        <div className='p-8 md:py-20 md:px-32 max-w-7xl mx-auto'>
+    <div className='bg-[#0a0a0a]'>
+      <Parallax />
+      <div className='relative z-10 bg-[#0a0a0a] border-t border-neutral-800/50'>
+        <div className='px-6 py-16 md:py-24 max-w-3xl mx-auto'>
           <Intro />
           <Skill />
         </div>

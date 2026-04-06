@@ -14,15 +14,15 @@ interface props {
 
 const Contacting:FC<props> = (props) => {
   return (
-    <div className='w-full bg-slate-900/50 aspect-[6/2] sm:aspect-[4/1] rounded-lg flex flex-col' key={props.items.key}>
-        <h1 className=' w-full pt-4 pb-2 md:text-lg lg:text-xl font-bold flex flex-row justify-center items-center gap-3'>{props.items.children} {props.items.name}</h1>
-        <div className='w-4/5 mx-auto h-1 rounded-lg bg-white'></div>
+    <div className='border border-neutral-800 rounded-lg p-4 flex flex-col gap-3 hover:border-neutral-600 transition-colors' key={props.items.key}>
+        <div className='flex items-center gap-2 text-sm text-neutral-300'>
+          {props.items.children}
+          <span className='font-medium'>{props.items.name}</span>
+        </div>
         {props.items.link == "" ?
-            <p className='w-4/5 mx-auto h-full md:text-lg lg:text-xl flex justify-center items-center gap-2 sm:gap-4'>
-                {props.items.info}
-            </p>
+            <p className='text-sm text-neutral-500'>{props.items.info}</p>
             :
-            <a href={props.items.link} target='_blank' rel="noopener noreferrer" className='w-4/5 mx-auto h-full p-0 sm:p-2 mb-2 md:mb-4 xl:mb-8 md:text-lg lg:text-xl flex justify-center items-center gap-2 sm:gap-4 hover:bg-blue-600/50 transition-colors duration-500 rounded-b-2xl'>
+            <a href={props.items.link} target='_blank' rel="noopener noreferrer" className='text-sm text-neutral-500 hover:text-white transition-colors flex items-center gap-1.5'>
                 {props.items.info}
                 <LinkIcon/>
             </a>

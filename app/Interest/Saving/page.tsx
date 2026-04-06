@@ -105,76 +105,64 @@ const page = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#0f1b31] text-[#7cc7d4]">
-      <div className="p-8 md:py-20 md:px-32 max-w-7xl mx-auto">
-        <section className="pt-8 lg:pt-4 w-full h-auto grid grid-cols-1 md:grid-cols-2 gap-2">
+    <div className="min-h-screen">
+      <div className="px-6 py-20 max-w-3xl mx-auto">
+        <h1 className="text-2xl font-light tracking-tight text-center mb-8">Saving Interest</h1>
+        <section className="grid grid-cols-1 sm:grid-cols-2 gap-3">
 
-          <div className="mt-2">
-            <div className="flex flex-row-reverse rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <input type="date" name="start" id="start" autoComplete="start" 
-              className="block flex-1 peer border-0 outline-none bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
+          <div>
+            <label className="block text-xs text-neutral-500 mb-1">Start Date</label>
+            <input type="date" name="start" id="start"
+              className="w-full bg-transparent border border-neutral-800 rounded-md px-3 py-2 text-sm text-neutral-200 outline-none focus:border-neutral-500 transition-colors" 
               onChange={e => setStart(new Date(e.target.value))}
-              defaultValue={defaultDate()}
-              placeholder="Date" />
-              <span className="flex select-none items-center px-3 sm:text-sm border-r border-white peer-focus:border-r-2 peer-focus:border-indigo-600">Start Date</span>
-            </div>
+              defaultValue={defaultDate()} />
           </div>
 
-          <div className="mt-2">
-            <div className="flex flex-row-reverse rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <input type="text" name="tax" id="tax" autoComplete="tax" 
-                className="block flex-1 peer border-0 outline-none bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
-                placeholder="Government Tax" 
-                defaultValue={tax.toString()}
-                onChange={e => {
-                  setTax(parseFloat(e.target.value))
-                }}
-              />
-              <span className="flex select-none items-center px-3 sm:text-sm border-r border-white peer-focus:border-r-2 peer-focus:border-indigo-600" >Gov Tax</span>
-            </div>
+          <div>
+            <label className="block text-xs text-neutral-500 mb-1">Gov Tax</label>
+            <input type="text" name="tax" id="tax"
+              className="w-full bg-transparent border border-neutral-800 rounded-md px-3 py-2 text-sm text-neutral-200 placeholder:text-neutral-600 outline-none focus:border-neutral-500 transition-colors" 
+              placeholder="Government Tax" 
+              defaultValue={tax.toString()}
+              onChange={e => setTax(parseFloat(e.target.value))}
+            />
           </div>
 
-          <div className="mt-2">
-            <div className="flex flex-row-reverse rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <textarea name="Rate" id="Rate" autoComplete="Rate" 
-                className="block flex-1 peer border-0 outline-none bg-transparent py-1.5 px-3 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
-                placeholder={"<,1000,5\n>,1000,10\n=,1000,10"}
-                rows={6}
-                defaultValue={rate.join("\n")}
-                onChange={e => {
-                  setRate(e.target.value.split("\n"))
-                }}
-              >
-              </textarea>
-            </div>
+          <div className="sm:col-span-2">
+            <label className="block text-xs text-neutral-500 mb-1">Rate Rules</label>
+            <textarea name="Rate" id="Rate"
+              className="w-full bg-transparent border border-neutral-800 rounded-md px-3 py-2 text-sm text-neutral-200 placeholder:text-neutral-600 outline-none focus:border-neutral-500 transition-colors" 
+              placeholder={"<,1000,5\n>,1000,10\n=,1000,10"}
+              rows={4}
+              defaultValue={rate.join("\n")}
+              onChange={e => setRate(e.target.value.split("\n"))}
+            />
           </div>
 
-          <div className="mt-2 sm:max-w-md">
+          <div>
             <button type="button" 
               onClick={calc}
-              className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+              className="px-4 py-2 text-sm border border-neutral-700 rounded-md text-neutral-300 hover:text-white hover:border-neutral-500 transition-colors">
               Calculate Date
             </button>
           </div>
 
         </section>
 
-        <section className="grid grid-cols-4 gap-0.5 p-0.5 bg-white content-center mt-6" >
+        <section className="grid grid-cols-4 gap-px mt-6 border border-neutral-800 rounded-md overflow-hidden">
           <Column content="Principal" title={true} />
           <Column content="Date" title={true} />
-          <Column content="with tax interest" title={true} />
-          <Column content="w/o tax interest" title={true} />
+          <Column content="With Tax" title={true} />
+          <Column content="W/O Tax" title={true} />
           {
             info.map((e, index) => {
               return (
                 <React.Fragment key={index}>
-                  <div className="text-center bg-[#0f1b31]" >
+                  <div className="text-center bg-neutral-900/50">
                     <input type="number" name={`p_${index}`} id={index.toString()}
-                      className="w-full h-full bg-transparent outline-none px-2 number_wo_arrow"
+                      className="w-full h-full bg-transparent outline-none px-2 text-xs text-neutral-300 number_wo_arrow"
                       defaultValue={e.principal}
-                      onChange={(e) => {
-                        setPrincipalVal(e, index);
-                      }}
+                      onChange={(e) => setPrincipalVal(e, index)}
                     />
                   </div>
                   <Column content={e.date} title={false} />
@@ -187,16 +175,18 @@ const page = () => {
         </section>
         {
           info.length !== 0 &&
-          <section >
-              <div className="mt-2 sm:max-w-md">
-                <button type="button" 
-                  onClick={sumVal}
-                  className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                  Calculate Sum In Month
-                </button>
+          <section className="mt-4 space-y-2">
+            <button type="button" 
+              onClick={sumVal}
+              className="px-4 py-2 text-sm border border-neutral-700 rounded-md text-neutral-300 hover:text-white hover:border-neutral-500 transition-colors">
+              Calculate Sum
+            </button>
+            {sum && (
+              <div className="flex gap-6 text-sm text-neutral-400">
+                <span>Full: {sum.full?.toFixed(4)}</span>
+                <span>After Tax: {sum.tax?.toFixed(4)}</span>
               </div>
-              <div>{sum?.full}</div>
-              <div>{sum?.tax}</div>
+            )}
           </section>
         }
       </div>

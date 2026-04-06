@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import Chart from './Chart'
 import Percentage from './Percentage'
-import BoldU from './BoldU'
 
 interface list {
     key : number,
@@ -17,13 +16,11 @@ interface props {
 const ChartContainer:FC<props> = (props) => {
   return (
     <Chart>
-        <div className='md:text-lg lg:text-xl md:px-8 py-2 '>
-            <div className='m-2'>
-                <BoldU>{props.title}</BoldU>
-            </div> 
+        <div>
+            <h3 className='text-sm font-medium text-neutral-400 mb-4'>{props.title}</h3>
             {props.lists.map( (item) => {
                 return(
-                    <Percentage item={item} />
+                    <Percentage item={item} key={item.key} />
                 )
             })}
         </div>

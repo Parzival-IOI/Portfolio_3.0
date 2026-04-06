@@ -7,10 +7,10 @@ const Chart = ({children}:{children : React.ReactNode}) => {
         triggerOnce : true,
         threshold : 0.5,
         rootMargin : "0px",
-        delay : 500,
+        delay : 300,
     })
   return (
-    <section className={`w-5/6 sm:w-4/6 md:w-3/5 max-w-4xl mx-auto my-16 h-auto bg-slate-900/50 rounded-2xl  transition-all duration-2000 ease-out ${view ? 'translate-y-0 opacity-100' : 'translate-y-40 opacity-0'}`} ref={_ref}>
+    <section className={`mx-auto my-12 h-auto border border-neutral-800 rounded-lg p-4 transition-all duration-700 ease-out ${view ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`} ref={_ref}>
         {children}
     </section>
   )

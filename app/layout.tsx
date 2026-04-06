@@ -1,11 +1,11 @@
 import './globals.css'
 import Navbar from '@/Components/Navbar'
 import { Metadata } from 'next'
-import { Signika } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import ScrollUp from '@/Components/ScrollUp'
 import Footer from '@/Components/Footer'
 
-const signika = Signika({
+const inter = Inter({
   subsets : ['latin'],
   display : 'swap',
 })
@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${signika.className} relative text-white bg-[#023017] dark:bg-[#0f1b31]`}>
+      <body className={`${inter.className} relative`}>
         <Navbar/>
         <main>{children}</main>
         <ScrollUp/>

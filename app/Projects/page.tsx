@@ -1,12 +1,5 @@
 import React from 'react'
 import Card from '@/Components/Card';
-import {Pacifico} from 'next/font/google'
-
-const font_style = Pacifico({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-})
 
 export type ProjectsResponse = {
   items: data[],
@@ -53,9 +46,9 @@ const page = async () => {
     const projects : ProjectsResponse = (await response.json()).data;
 
     return (
-      <div className='max-w-6xl mx-auto'>
-        <h1 className={`${font_style.className} w-full pt-24 text-4xl text-center font-bold underline underline-offset-4`}>Project</h1>
-        <div className='w-full p-8 pt-16 md:16 flex justify-center items-center flex-wrap gap-10 md:gap-16 mb-16'>
+      <div className='max-w-4xl mx-auto px-6'>
+        <h1 className='pt-24 pb-12 text-2xl font-light tracking-tight text-center'>Projects</h1>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pb-16'>
           {projects && projects.items.map((item: data) => {
               return(
                 <Card item={item} key={item.id}/>
